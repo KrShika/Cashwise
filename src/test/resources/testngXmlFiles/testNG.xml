@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Common Check Test">
+    <test name="Check Test">
+        <classes>
+            <class name="tests.SellerTests"></class>
+            <class name="tests.AddProductTests"></class>
+            <class name="tests.AddClientsTests"></class>
+            <class name="tests.CheckTests">
+                <methods>
+                    <exclude name="verifyAddCheckNegative"></exclude>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
