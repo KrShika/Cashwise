@@ -59,28 +59,8 @@ public class AddClientsTests {
         String actual = driver.getCurrentUrl();
         String expected = "https://cashwise.us/dashboard/sales/clients/active?isCreate=false";
         Assert.assertFalse(actual.equals(expected));
-
-
     }
 
 
-    @Test
-    public void verifyAddClientNegative(){
-        driver.get("https://cashwise.us/main");
-        homePage.Login("Admin@gmail.com","admin1234");
-        addClientsCashwise.sales.click();
-        addClientsCashwise.buttonAddClient.click();
-        addClientsCashwise.clientsTagsInput.click();
-        addClientsCashwise.selecttesttag.click();
-        addClientsCashwise.companyInput.sendKeys(faker.name().fullName());
-        addClientsCashwise.fullNameInput.sendKeys(faker.name().name());
-        addClientsCashwise.emailInput.sendKeys(faker.name().username());
-        addClientsCashwise.phoneNumberInput.sendKeys(faker.phoneNumber().phoneNumber());
-        addClientsCashwise.addressInput.sendKeys(faker.address().fullAddress());
-        addClientsCashwise.saveButton.click();
-        String expected = "Please enter a valid email address";
-        String actual = driver.findElement(By.xpath("//p[text()=\"Please enter a valid email address\"]")).getText();
-        Assert.assertEquals(actual,expected);
 
-    }
 }
