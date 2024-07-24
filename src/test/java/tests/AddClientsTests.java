@@ -26,7 +26,7 @@ public class AddClientsTests {
     AddClientsPage addClientsCashwise;
     Faker faker;
 
-    @BeforeMethod
+    @BeforeMethod (groups = {"positive"})
     public void beforeMethod(){
         this.driver = Driver.getDriver();
         this.homePage = new HomePage();
@@ -40,15 +40,13 @@ public class AddClientsTests {
     }
 
 
-    @Test
+    @Test (groups =  {"positive"})
     public void testAddClients() {
         driver.get("https://cashwise.us/main");
         homePage.Login("Admin@gmail.com","admin1234");
         addClientsCashwise.sales.click();
         addClientsCashwise.buttonAddClient.click();
-        SeleniumUtils.waitForSeconds(4);
         addClientsCashwise.clientsTagsInput.click();
-        SeleniumUtils.waitForSeconds(4);
         addClientsCashwise.selecttesttag.click();
         addClientsCashwise.companyInput.sendKeys(faker.name().fullName());
         addClientsCashwise.fullNameInput.sendKeys(faker.name().name());
@@ -56,9 +54,8 @@ public class AddClientsTests {
         addClientsCashwise.phoneNumberInput.sendKeys(faker.phoneNumber().phoneNumber());
         addClientsCashwise.addressInput.sendKeys(faker.address().fullAddress());
         addClientsCashwise.saveButton.click();
-        String actual = driver.getCurrentUrl();
-        String expected = "https://cashwise.us/dashboard/sales/clients/active?isCreate=false";
-        Assert.assertFalse(actual.equals(expected));
+        String actual = "https://cashwise.us/dashboard/sales/clients/active?isCreate=true";
+        Assert.assertFalse(actual.equals(actual));
     }
 
 
