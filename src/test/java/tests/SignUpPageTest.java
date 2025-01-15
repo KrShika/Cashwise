@@ -27,7 +27,7 @@ public class SignUpPageTest {
 //        Select select = new Select(element);
 
 
-        signUpPage.testSignUp1("xxxx@gmail.com", "123456", "123456", "Ivan", "Rakitic", "actor", "" "as", "kg");
+        signUpPage.testSignUp1("xxxx@gmail.com", "123456", "123456", "Ivan", "Rakitic", "actor", "", "as", "kg");
 //        signUpPage.selectCategory.click();
 //        signUpPage.currencyInput.click();
 //        signUpPage.currencySelect.click();
